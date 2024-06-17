@@ -4,7 +4,7 @@ clientSecret="$3"
 tenant="$4"
 environmentId="$5"
 baseUrl="$6"
-solFileName="pva_solution.zip"
+solFileName="pcea_solution.zip"
 
 zipUrl=${baseUrl}"Deployment/Data/pcea_solution.zip"
 
