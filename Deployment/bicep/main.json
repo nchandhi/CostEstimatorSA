@@ -1,0 +1,231 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.28.1.47646",
+      "templateHash": "8794128454566344969"
+    }
+  },
+  "parameters": {
+    "solutionPrefix": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 6,
+      "metadata": {
+        "description": "Prefix Name"
+      }
+    },
+    "clientId": {
+      "type": "string"
+    },
+    "clientSecret": {
+      "type": "securestring"
+    },
+    "environmentUrl": {
+      "type": "string"
+    },
+    "environmentId": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "solutionLocation": "[resourceGroup().location]",
+    "baseUrl": "https://raw.githubusercontent.com/nchandhi/CostEstimatorSA/main/"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2022-09-01",
+      "name": "deploy_managed_identity",
+      "resourceGroup": "[resourceGroup().name]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "solutionName": {
+            "value": "[parameters('solutionPrefix')]"
+          },
+          "solutionLocation": {
+            "value": "[variables('solutionLocation')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.28.1.47646",
+              "templateHash": "14133192615685065374"
+            }
+          },
+          "parameters": {
+            "solutionName": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 15,
+              "metadata": {
+                "description": "Solution Name"
+              }
+            },
+            "solutionLocation": {
+              "type": "string",
+              "metadata": {
+                "description": "Solution Location"
+              }
+            },
+            "miName": {
+              "type": "string",
+              "defaultValue": "[format('{0}-managed-identity', parameters('solutionName'))]",
+              "metadata": {
+                "description": "Name"
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+              "apiVersion": "2023-01-31",
+              "name": "[parameters('miName')]",
+              "location": "[parameters('solutionLocation')]",
+              "tags": {
+                "app": "[parameters('solutionName')]",
+                "location": "[parameters('solutionLocation')]"
+              }
+            },
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "name": "[guid(resourceGroup().id, resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('miName')), resourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635'))]",
+              "properties": {
+                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('miName')), '2023-01-31').principalId]",
+                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+                "principalType": "ServicePrincipal"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('miName'))]"
+              ]
+            }
+          ],
+          "outputs": {
+            "managedIdentityOutput": {
+              "type": "object",
+              "value": {
+                "id": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('miName'))]",
+                "objectId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('miName')), '2023-01-31').principalId]",
+                "name": "[parameters('miName')]"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2022-09-01",
+      "name": "deploy_copilot_sol",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "solutionLocation": {
+            "value": "[variables('solutionLocation')]"
+          },
+          "identity": {
+            "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, resourceGroup().name), 'Microsoft.Resources/deployments', 'deploy_managed_identity'), '2022-09-01').outputs.managedIdentityOutput.value.id]"
+          },
+          "baseUrl": {
+            "value": "[variables('baseUrl')]"
+          },
+          "applicationId": {
+            "value": "[parameters('clientId')]"
+          },
+          "clientSecret": {
+            "value": "[parameters('clientSecret')]"
+          },
+          "environmentId": {
+            "value": "[parameters('environmentId')]"
+          },
+          "environmentUrl": {
+            "value": "[parameters('environmentUrl')]"
+          },
+          "tenant": {
+            "value": "[tenant().tenantId]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.28.1.47646",
+              "templateHash": "5517784697460108398"
+            }
+          },
+          "parameters": {
+            "solutionLocation": {
+              "type": "string",
+              "metadata": {
+                "description": "Specifies the location for resources."
+              }
+            },
+            "identity": {
+              "type": "string"
+            },
+            "environmentUrl": {
+              "type": "string"
+            },
+            "applicationId": {
+              "type": "string"
+            },
+            "clientSecret": {
+              "type": "securestring"
+            },
+            "tenant": {
+              "type": "string"
+            },
+            "environmentId": {
+              "type": "string"
+            },
+            "baseUrl": {
+              "type": "string"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Resources/deploymentScripts",
+              "apiVersion": "2020-10-01",
+              "name": "deploy_copilot_sol",
+              "kind": "AzureCLI",
+              "location": "[parameters('solutionLocation')]",
+              "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                  "[format('{0}', parameters('identity'))]": {}
+                }
+              },
+              "properties": {
+                "azCliVersion": "2.25.0",
+                "primaryScriptUri": "[format('{0}Deployment/scripts/deploy_copilot_sol.sh', parameters('baseUrl'))]",
+                "arguments": "[format('{0} {1} {2} {3} {4} {5}', parameters('environmentUrl'), parameters('applicationId'), parameters('clientSecret'), parameters('tenant'), parameters('environmentId'), parameters('baseUrl'))]",
+                "timeout": "PT1H",
+                "retentionInterval": "PT1H",
+                "cleanupPreference": "Always"
+              }
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, resourceGroup().name), 'Microsoft.Resources/deployments', 'deploy_managed_identity')]"
+      ]
+    }
+  ]
+}
