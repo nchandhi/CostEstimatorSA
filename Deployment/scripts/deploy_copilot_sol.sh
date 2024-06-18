@@ -6,7 +6,7 @@ environmentId="$5"
 baseUrl="$6"
 solFileName="pcea_solution.zip"
 
-zipUrl=${baseUrl}"Deployment/Data/pcea_solution.zip"
+zipUrl=${baseUrl}"Deployment/data/pcea_solution.zip"
 
 
 # Download the zip file
@@ -22,11 +22,11 @@ export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 
 dotnet tool install --global Microsoft.PowerApps.CLI.Tool
 
-
 pac auth create --url $environmentUrl \
                 --name pceaspn --applicationId $applicationId \
                 --clientSecret $clientSecret \
-                --tenant $tenant \
-                --environment $environmentId
+                --tenant $tenant 
+                # \
+                # --environment $environmentId
 
 pac solution import --path "pcea_solution.zip"
