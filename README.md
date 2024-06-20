@@ -15,12 +15,12 @@ Enterprises spend a lot of time and resources to plan big projects that might in
 
 This solution accelerator helps both the requester and the estimator throughout the process; Project requesters are provided with links and guidance as to how to complete the request process, with the ability to use the Copilot to answer any questions they may have, thus drastically cutting down on the amount of questions the estimator receives.
 
-It leverages Copilot Studio, Azure Open AI Service, Azure AI Search to identify relevant documents, answer questions, accelerate project planning and cost estimate submissions.
+It leverages Copilot Studio, Azure Open AI Service, and Power Platform to identify relevant documents, answer questions, accelerate project planning and cost estimate submissions.
 
 
 **Scenario**
 
-This solution will aid the project requesters by providing them with resources to complete their requests, as well as alleviate the demands on the project estimator with adhoc queries from the requestors
+This solution will aid the project requesters by providing them with resources to complete their project requests, as well as alleviate the demands on the project estimator with adhoc queries from the requestors.
 
 The sample data is sourced from public data sources. The documents are intended for use as sample data only.
 
@@ -44,13 +44,14 @@ One-click deploy
 
 ### Prerequisites
 
-To use this solution accelerator, you will need access to an [Azure subscription](https://azure.microsoft.com/free/) with permission to create resource groups and resources. While not required, a prior understanding of Azure Open AI, Azure AI Search and Microsoft Fabric will be helpful.
+To use this solution accelerator, you will need access to an [Azure subscription](https://azure.microsoft.com/free/) with permission to create resource groups and resources. You will also need access to a Power Platform Environment with administrator access. While not required, a prior understanding of Azure Open AI, Copilot Studio and Power Apps will be helpful.
 
 For additional training and support, please see:
 
 1. [Copilt Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/) 
-2. [Azure Open AI](https://learn.microsoft.com/en-us/azure/ai-services/openai/) 
-3. [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/) 
+2. [Power Platform](https://www.microsoft.com/en-us/power-platform/products/power-apps) 
+3. [Azure Open AI](https://learn.microsoft.com/en-us/azure/ai-services/openai/) 
+
 
 ### Solution accelerator architecture
 ![image](/Deployment/images/readMe/architecture.png)
@@ -61,19 +62,19 @@ For additional training and support, please see:
 
 ### **How to install/deploy**
 
-1. Please check the link [Azure Products by Region](
-https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=all&regions=all) and choose a region where Azure AI Search, Semantic Ranker, Azure OpenAI Service, and Azure AI Studio are available. 
+1. Please follow the [Prerequisites guide](./Deployment/Prerequisites.md) before deploying the solution 
 
-2. Click the following deployment button to create the required resources for this accelerator in your Azure Subscription.
+
+2. Click the following deployment button to create the required resources for this accelerator in your environment.
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fnchandhi%2FCostEstimatorSA%2Fmain%2FDeployment%2Fbicep%2Fmain.json)
 
 
-3. You will need to select an Azure Subscription, create/select a Resource group, Region, and a unique Solution Prefix.
+3. You will need to select an Azure Subscription, create/select a Resource group, Region, and a unique Solution Prefix. Provide the Client Id and Secret you created in previous step. 
 
    ![image](/Deployment/images/readMe/armDeployment.png)
 
-4. When Deployment is complete, follow steps in [Copilt Studio Deployment guide](./Deployment/AIStudioDeployment.md) to configure the grant draft proposal endpoint.
+4. When Deployment is complete, follow steps in [Copilt Studio Deployment guide](./Deployment/CopilotStudioDeployment.md) to configure the grant draft proposal endpoint.
 
 
 <br/>
