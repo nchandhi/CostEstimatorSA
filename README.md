@@ -32,10 +32,29 @@ The sample data is sourced from public data sources. The documents are intended 
 
 <br/>
 
+This solution package includes the following:
+
+1. A custom Copilot for Project Estimation
+2. Sample public dataset
+2. Power App to submit project requests
+3. Power Automate Flows
+4. Dataverse Tables for the project estimates 
+5. A sample checklist for project estimation
+
+
 **Below is an image of the solution accelerator.**
 
-![Landing Page](/Deployment/images/readMe/landing_page.png)
+Copilot - Chat with project estimation document knowledgebase:
 
+![Landing Page](/Deployment/images/copilot/image1.png)
+
+Copilot - Email flow for human in the loop for complex questions:
+![Landing Page](/Deployment/images/copilot/image2.png)
+
+![Landing Page](/Deployment/images/copilot/image3.png)
+
+New project request automation flow:
+![Landing Page](/Deployment/images/copilot/image4.png)
 
 <h2><img src="Deployment/images/readMe/oneClickDeploy.png" width="64">
 <br/>
@@ -74,7 +93,7 @@ For additional training and support, please see:
 
    ![image](/Deployment/images/readMe/armDeployment.png)
 
-4. When Deployment is complete, follow steps in [Copilt Studio Deployment guide](./Deployment/CopilotStudioDeployment.md) to configure the grant draft proposal endpoint.
+4. When Deployment is complete, follow steps in [Deployment guide](./Deployment/CopilotStudioDeployment.md) to configure the connections.
 
 
 <br/>
