@@ -39,7 +39,7 @@ Switch back to your topic in Copilot Studio from Step 1 and open the message nod
 
 ![image](/Deployment/images/deployment/image4.png)
 
-Navigate to the ‘Conversational Boosting’ topic and open the ‘Create Generative Answers node. In properties, please make sure ‘Allow the AI to use it’s own general knowledge’ toggle is set to No. If this is yes, the copilot will use general information in addition to your knowledge documents which can lead to inaccurate replies. Only have this toggle on if you’d like the copilot to use general information in addition to your knowledge sources. 
+Navigate to the `Conversational Boosting` topic and open the ‘Create Generative Answers node. In properties, please make sure ‘Allow the AI to use it’s own general knowledge’ toggle is set to No. If this is yes, the copilot will use general information in addition to your knowledge documents which can lead to inaccurate replies. Only have this toggle on if you’d like the copilot to use general information in addition to your knowledge sources. 
 
 ![image](/Deployment/images/deployment/image5.png)
 
