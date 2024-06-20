@@ -42,6 +42,9 @@ This solution package includes the following:
 5. A sample checklist for project estimation
 
 
+### Solution accelerator architecture
+![image](/Deployment/images/readMe/architecture.png)
+
 **Below is an image of the solution accelerator.**
 
 Copilot - Chat with project estimation document knowledgebase:
@@ -71,9 +74,6 @@ For additional training and support, please see:
 2. [Power Platform](https://www.microsoft.com/en-us/power-platform/products/power-apps) 
 3. [Azure Open AI](https://learn.microsoft.com/en-us/azure/ai-services/openai/) 
 
-
-### Solution accelerator architecture
-![image](/Deployment/images/readMe/architecture.png)
 
 
  > Note: Some features contained in this repository are in public preview. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms).
