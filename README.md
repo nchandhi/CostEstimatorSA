@@ -34,24 +34,22 @@ The sample data is sourced from public data sources. The documents are intended 
 
 This solution package includes the following:
 
-1. A custom Copilot for Project Estimation
+1. A custom Copilot for project estimation
 2. Sample public dataset
-2. Power App to submit project requests
-3. Power Automate Flows
-4. Dataverse Tables for the project estimates 
-5. A sample checklist for project estimation
-
+2. A PowerApp to submit project requests
+3. Power automate flows
+4. A sample checklist for project estimation
 
 ### Solution accelerator architecture
 ![image](/Deployment/images/readMe/architecture.png)
 
-**Below is an image of the solution accelerator.**
+### Some images of the solution accelerator flow
 
 Copilot - Chat with project estimation document knowledgebase:
 
 ![Landing Page](/Deployment/images/copilot/image1.png)
 
-Copilot - Email flow for human in the loop for complex questions:
+Copilot - Email flow for human-in-the-loop for complex questions:
 ![Landing Page](/Deployment/images/copilot/image2.png)
 
 ![Landing Page](/Deployment/images/copilot/image3.png)
@@ -96,7 +94,6 @@ For additional training and support, please see:
 4. When Deployment is complete, follow steps in [Deployment guide](./Deployment/CopilotStudioDeployment.md) to configure the connections.
 
 
-<br/>
 <br>
 <h2><img src="./Deployment/images/readMe/supportingDocuments.png" width="64">
 <br/>
