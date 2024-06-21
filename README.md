@@ -73,7 +73,6 @@ For additional training and support, please see:
 3. [Azure Open AI](https://learn.microsoft.com/en-us/azure/ai-services/openai/) 
 
 
-
  > Note: Some features contained in this repository are in public preview. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms).
 
 
@@ -91,7 +90,7 @@ For additional training and support, please see:
 
    ![image](/Deployment/images/readMe/armDeployment.png)
 
-4. When Deployment is complete, follow steps in [Deployment guide](./Deployment/CopilotStudioDeployment.md) to configure the connections.
+4. When Deployment is complete, follow steps in [Deployment guide](./Deployment/Deployment.md) to configure the connections.
 
 
 <br>
